@@ -1,4 +1,5 @@
 import sys
+from scanner import scanner
 
 def run_file(path: str) -> None:
     try:
@@ -26,5 +27,6 @@ def run_repl() -> None:
             sys.exit(0)
 
 def run(source: str) -> None:
-    for token in source:
+    tokens = scanner(source)
+    for token in tokens:
         print(token)
