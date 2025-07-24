@@ -1,4 +1,5 @@
 from _token import make_token, Token
+from report import error
 
 def scanner(source: str) -> list[Token]:
     tokens: list[Token] = []
@@ -29,6 +30,7 @@ def scanner(source: str) -> list[Token]:
             case ',': add_token("COMMA", ",", None, line)
             case ';': add_token("SEMICOLON", ";", None, line)
             case '*': add_token("STAR", "*", None, line)
+            case _ : error(line, "Unexpected character.")
 
 
     while not _is_at_end():
