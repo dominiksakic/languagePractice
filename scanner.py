@@ -20,7 +20,15 @@ def scanner(source: str) -> list[Token]:
 
         match c:
             case '(': add_token("LEFT_PAREN", "(", None, line)
-            case ')': add_token("RIGHT_PAREN", ")", None, line)
+            case ')': add_token("RIGHT_PAREN", "(", None, line)
+            case '{': add_token("LEFT_BRACE", "(", None, line)
+            case '}': add_token("RIGHT_BRACE", "(", None, line)
+            case '+': add_token("PLUS", "+", None, line)
+            case '-': add_token("MINUS", "-", None, line)
+            case '.': add_token("DOT", ".", None, line)
+            case ',': add_token("COMMA", ",", None, line)
+            case ';': add_token("SEMICOLON", ";", None, line)
+            case '*': add_token("STAR", "*", None, line)
 
 
     while not _is_at_end():
